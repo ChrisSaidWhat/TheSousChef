@@ -1,0 +1,615 @@
+/*Sous Chef Imports*/
+@import url("https://use.typekit.net/pvx7qae.css");
+/*Sous Chef Color Variables*/
+/*Sous Chef Typography Variables*/
+/*Sous Chef Typography Mixins*/
+/*Element Styling*/
+a {
+  color: unset;
+  text-decoration: none;
+}
+
+body {
+  margin: unset;
+}
+
+h1 {
+  color: #3C3C3C;
+  font-family: Bookmania, serif;
+  font-feature-settings: "dlig";
+  font-weight: 700 !important;
+  font-size: 4rem;
+  line-height: 0.4;
+  align-self: center;
+  padding-left: 20px;
+}
+
+p {
+  color: #FAFFFD;
+  font-family: "gill-sans-nova", "Gill Sans", sans-serif;
+  font-weight: 500;
+  font-size: 1.5rem;
+  align-self: end;
+  padding-left: 20px;
+}
+
+/*Id Styling*/
+#adBlender {
+  align-self: center;
+  animation-delay: 3s;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-name: enterBlender;
+  height: 85%;
+  position: absolute;
+  right: -500px;
+}
+
+#adPan {
+  align-self: center;
+  animation-delay: 1.5s;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-name: enterPan;
+  height: 85%;
+  position: absolute;
+  right: -500px;
+}
+
+#bannerBody {
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-name: bannerDisplay;
+  animation-timing-function: ease;
+  background-color: #FA824C;
+  height: 100px;
+  position: absolute;
+  top: -100px;
+  width: 100%;
+  z-index: 2;
+}
+
+#closeAd {
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 900;
+}
+
+#linkContents {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  height: 100px;
+  width: 100%;
+}
+
+#scLogo {
+  align-self: end;
+  animation-delay: 4.5s;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-name: enterLogo;
+  bottom: -7.3px;
+  position: absolute;
+  right: -500px;
+  width: 15%;
+}
+
+/*Animations*/
+@keyframes bannerDisplay {
+  100% {
+    transform: translateY(100px);
+  }
+}
+@keyframes enterBlender {
+  0% {
+    transform: translateX(0px) rotate(0deg);
+  }
+  20% {
+    transform: translateX(-500px) rotate(20deg);
+  }
+  30% {
+    transform: translateX(-550px) rotate(-20deg);
+  }
+  40% {
+    transform: translateX(-600px) rotate(20deg);
+  }
+  50% {
+    transform: translateX(-650px) rotate(-20deg);
+  }
+  60% {
+    transform: translateX(-700px) rotate(20deg);
+  }
+  70% {
+    transform: translateX(-750px) rotate(-20deg);
+  }
+  80% {
+    transform: translateX(-800px) rotate(20deg);
+  }
+  90% {
+    transform: translateX(-900px) rotate(-20deg);
+  }
+  100% {
+    transform: translateX(-890px) rotate(20deg);
+  }
+}
+@keyframes enterLogo {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(-550px);
+  }
+}
+@keyframes enterPan {
+  0% {
+    transform: translateX(0px) rotate(0deg);
+  }
+  20% {
+    transform: translateX(-500px) rotate(20deg);
+  }
+  30% {
+    transform: translateX(-550px) rotate(-20deg);
+  }
+  40% {
+    transform: translateX(-600px) rotate(20deg);
+  }
+  50% {
+    transform: translateX(-650px) rotate(-20deg);
+  }
+  60% {
+    transform: translateX(-700px) rotate(20deg);
+  }
+  70% {
+    transform: translateX(-750px) rotate(-20deg);
+  }
+  80% {
+    transform: translateX(-800px) rotate(20deg);
+  }
+  90% {
+    transform: translateX(-900px) rotate(-20deg);
+  }
+  100% {
+    transform: translateX(-990px) rotate(20deg);
+  }
+}
+/*Media Queries*/
+@media screen and (max-width: 1400px) {
+  #scLogo {
+    bottom: -5px;
+  }
+  h1 {
+    font-size: 3rem;
+  }
+  p {
+    font-size: 1rem;
+  }
+  @keyframes enterBlender {
+    0% {
+      transform: translateX(0px) rotate(0deg);
+    }
+    20% {
+      transform: translateX(-350px) rotate(20deg);
+    }
+    30% {
+      transform: translateX(-400px) rotate(-20deg);
+    }
+    40% {
+      transform: translateX(-450px) rotate(20deg);
+    }
+    50% {
+      transform: translateX(-500px) rotate(-20deg);
+    }
+    60% {
+      transform: translateX(-550px) rotate(20deg);
+    }
+    70% {
+      transform: translateX(-600px) rotate(-20deg);
+    }
+    80% {
+      transform: translateX(-650px) rotate(20deg);
+    }
+    90% {
+      transform: translateX(-700px) rotate(-20deg);
+    }
+    100% {
+      transform: translateX(-770px) rotate(20deg);
+    }
+  }
+  @keyframes enterPan {
+    0% {
+      transform: translateX(0px) rotate(0deg);
+    }
+    20% {
+      transform: translateX(-450px) rotate(20deg);
+    }
+    30% {
+      transform: translateX(-500px) rotate(-20deg);
+    }
+    40% {
+      transform: translateX(-550px) rotate(20deg);
+    }
+    50% {
+      transform: translateX(-600px) rotate(-20deg);
+    }
+    60% {
+      transform: translateX(-650px) rotate(20deg);
+    }
+    70% {
+      transform: translateX(-700px) rotate(-20deg);
+    }
+    80% {
+      transform: translateX(-750px) rotate(20deg);
+    }
+    90% {
+      transform: translateX(-800px) rotate(-20deg);
+    }
+    100% {
+      transform: translateX(-850px) rotate(20deg);
+    }
+  }
+}
+@media screen and (max-width: 1200px) {
+  #scLogo {
+    bottom: -5px;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  p {
+    font-size: 1rem;
+  }
+  @keyframes enterBlender {
+    0% {
+      transform: translateX(0px) rotate(0deg);
+    }
+    20% {
+      transform: translateX(-300px) rotate(20deg);
+    }
+    30% {
+      transform: translateX(-350px) rotate(-20deg);
+    }
+    40% {
+      transform: translateX(-400px) rotate(20deg);
+    }
+    50% {
+      transform: translateX(-450px) rotate(-20deg);
+    }
+    60% {
+      transform: translateX(-500px) rotate(20deg);
+    }
+    70% {
+      transform: translateX(-550px) rotate(-20deg);
+    }
+    80% {
+      transform: translateX(-600px) rotate(20deg);
+    }
+    90% {
+      transform: translateX(-650px) rotate(-20deg);
+    }
+    100% {
+      transform: translateX(-700px) rotate(20deg);
+    }
+  }
+  @keyframes enterLogo {
+    0% {
+      transform: translateX(0px);
+    }
+    100% {
+      transform: translateX(-520px);
+    }
+  }
+  @keyframes enterPan {
+    0% {
+      transform: translateX(0px) rotate(0deg);
+    }
+    20% {
+      transform: translateX(-350px) rotate(20deg);
+    }
+    30% {
+      transform: translateX(-400px) rotate(-20deg);
+    }
+    40% {
+      transform: translateX(-450px) rotate(20deg);
+    }
+    50% {
+      transform: translateX(-500px) rotate(-20deg);
+    }
+    60% {
+      transform: translateX(-550px) rotate(20deg);
+    }
+    70% {
+      transform: translateX(-600px) rotate(-20deg);
+    }
+    80% {
+      transform: translateX(-650px) rotate(20deg);
+    }
+    90% {
+      transform: translateX(-700px) rotate(-20deg);
+    }
+    100% {
+      transform: translateX(-770px) rotate(20deg);
+    }
+  }
+}
+@media screen and (max-width: 992px) {
+  #scLogo {
+    bottom: -5px;
+    width: 20%;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  p {
+    font-size: 1rem;
+    position: absolute;
+    left: 0;
+  }
+  @keyframes enterBlender {
+    0% {
+      transform: translateX(0px) rotate(0deg);
+    }
+    20% {
+      transform: translateX(-300px) rotate(20deg);
+    }
+    30% {
+      transform: translateX(-350px) rotate(-20deg);
+    }
+    40% {
+      transform: translateX(-400px) rotate(20deg);
+    }
+    50% {
+      transform: translateX(-450px) rotate(-20deg);
+    }
+    60% {
+      transform: translateX(-500px) rotate(20deg);
+    }
+    70% {
+      transform: translateX(-550px) rotate(-20deg);
+    }
+    80% {
+      transform: translateX(-600px) rotate(20deg);
+    }
+    90% {
+      transform: translateX(-650px) rotate(-20deg);
+    }
+    100% {
+      transform: translateX(-710px) rotate(20deg);
+    }
+  }
+  @keyframes enterLogo {
+    0% {
+      transform: translateX(0px);
+    }
+    100% {
+      transform: translateX(-510px);
+    }
+  }
+  @keyframes enterPan {
+    0% {
+      transform: translateX(0px) rotate(0deg);
+    }
+    20% {
+      transform: translateX(-350px) rotate(20deg);
+    }
+    30% {
+      transform: translateX(-400px) rotate(-20deg);
+    }
+    40% {
+      transform: translateX(-450px) rotate(20deg);
+    }
+    50% {
+      transform: translateX(-500px) rotate(-20deg);
+    }
+    60% {
+      transform: translateX(-550px) rotate(20deg);
+    }
+    70% {
+      transform: translateX(-600px) rotate(-20deg);
+    }
+    80% {
+      transform: translateX(-650px) rotate(20deg);
+    }
+    90% {
+      transform: translateX(-700px) rotate(-20deg);
+    }
+    100% {
+      transform: translateX(-770px) rotate(20deg);
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  #adBlender {
+    height: 60%;
+  }
+  #adPan {
+    height: 60%;
+  }
+  #scLogo {
+    bottom: -3.6px;
+    width: 20%;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  p {
+    font-size: 1rem;
+    position: absolute;
+    left: 0;
+  }
+  @keyframes enterBlender {
+    0% {
+      transform: translateX(0px) rotate(0deg);
+    }
+    20% {
+      transform: translateX(-290px) rotate(20deg);
+    }
+    30% {
+      transform: translateX(-320px) rotate(-20deg);
+    }
+    40% {
+      transform: translateX(-350px) rotate(20deg);
+    }
+    50% {
+      transform: translateX(-380px) rotate(-20deg);
+    }
+    60% {
+      transform: translateX(-400px) rotate(20deg);
+    }
+    70% {
+      transform: translateX(-430px) rotate(-20deg);
+    }
+    80% {
+      transform: translateX(-460px) rotate(20deg);
+    }
+    90% {
+      transform: translateX(-490px) rotate(-20deg);
+    }
+    100% {
+      transform: translateX(-520px) rotate(20deg);
+    }
+  }
+  @keyframes enterLogo {
+    0% {
+      transform: translateX(0px);
+    }
+    100% {
+      transform: translateX(-510px);
+    }
+  }
+  @keyframes enterPan {
+    0% {
+      transform: translateX(0px) rotate(0deg);
+    }
+    20% {
+      transform: translateX(-350px) rotate(20deg);
+    }
+    30% {
+      transform: translateX(-380px) rotate(-20deg);
+    }
+    40% {
+      transform: translateX(-400px) rotate(20deg);
+    }
+    50% {
+      transform: translateX(-430px) rotate(-20deg);
+    }
+    60% {
+      transform: translateX(-460px) rotate(20deg);
+    }
+    70% {
+      transform: translateX(-490px) rotate(-20deg);
+    }
+    80% {
+      transform: translateX(-520px) rotate(20deg);
+    }
+    90% {
+      transform: translateX(-550px) rotate(-20deg);
+    }
+    100% {
+      transform: translateX(-580px) rotate(20deg);
+    }
+  }
+}
+@media screen and (max-width: 576px) {
+  #adBlender {
+    align-self: end;
+    height: 40%;
+  }
+  #adPan {
+    align-self: end;
+    height: 40%;
+  }
+  #scLogo {
+    bottom: -5px;
+    width: 30%;
+  }
+  h1 {
+    align-self: start;
+    font-size: 1.5rem;
+  }
+  p {
+    font-size: 1rem;
+    position: absolute;
+    left: 0;
+  }
+  @keyframes enterBlender {
+    0% {
+      transform: translateX(0px) rotate(0deg);
+    }
+    20% {
+      transform: translateX(-460px) rotate(20deg);
+    }
+    30% {
+      transform: translateX(-500px) rotate(-20deg);
+    }
+    40% {
+      transform: translateX(-540px) rotate(20deg);
+    }
+    50% {
+      transform: translateX(-580px) rotate(-20deg);
+    }
+    60% {
+      transform: translateX(-620px) rotate(20deg);
+    }
+    70% {
+      transform: translateX(-660px) rotate(-20deg);
+    }
+    80% {
+      transform: translateX(-700px) rotate(20deg);
+    }
+    90% {
+      transform: translateX(-740px) rotate(-20deg);
+    }
+    100% {
+      transform: translateX(-780px) rotate(20deg);
+    }
+  }
+  @keyframes enterLogo {
+    0% {
+      transform: translateX(0px);
+    }
+    100% {
+      transform: translateX(-520px);
+    }
+  }
+  @keyframes enterPan {
+    0% {
+      transform: translateX(0px) rotate(0deg);
+    }
+    20% {
+      transform: translateX(-560px) rotate(20deg);
+    }
+    30% {
+      transform: translateX(-600px) rotate(-20deg);
+    }
+    40% {
+      transform: translateX(-640px) rotate(20deg);
+    }
+    50% {
+      transform: translateX(-680px) rotate(-20deg);
+    }
+    60% {
+      transform: translateX(-720px) rotate(20deg);
+    }
+    70% {
+      transform: translateX(-760px) rotate(-20deg);
+    }
+    80% {
+      transform: translateX(-800px) rotate(20deg);
+    }
+    90% {
+      transform: translateX(-840px) rotate(-20deg);
+    }
+    100% {
+      transform: translateX(-880px) rotate(20deg);
+    }
+  }
+}
+
+/*# sourceMappingURL=announcement.css.map */

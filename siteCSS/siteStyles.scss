@@ -1,0 +1,738 @@
+/*Sous Chef Imports*/
+@import url("https://use.typekit.net/pvx7qae.css");
+
+/*Sous Chef Color Variables*/
+$sc-accent-col: #FA824C;
+$sc-body-col: #FAFFFD;
+$sc-err-col: #F06A7C;
+$sc-header-footer-col: #F19A3E;
+$sc-nav-col: #F5BA7A;
+$sc-section-col: #A2D729;
+$sc-text-col: #3C3C3C;
+
+/*Sous Chef Typography Variables*/
+$sc-body-type: "gill-sans-nova", "Gill Sans", sans-serif;
+$sc-condensed-type: "gill-sans-nova-condensed", "Gill Sans", sans-serif;
+$sc-display-type: Bookmania, serif;
+
+/*Sous Chef Typography Mixins*/
+
+@mixin adminBtn {
+  color: $sc-body-col;
+  font-family: $sc-body-type;
+  font-weight: 800 !important;
+}
+
+@mixin display1 {
+  color: $sc-text-col;
+  font-family: $sc-display-type;
+  font-feature-settings: "dlig";
+  font-weight: 700 !important;
+  line-height: .4;
+}
+
+@mixin display2 {
+  color: $sc-text-col;
+  font-family: $sc-display-type;
+  font-weight: 700 !important;
+}
+
+@mixin display3 {
+  color: $sc-text-col;
+  font-family: $sc-display-type;
+  font-weight: 600 !important;
+}
+
+@mixin display4 {
+  color: $sc-text-col;
+  font-family: $sc-display-type;
+  font-weight: 700 !important;
+  margin-bottom: -23px;
+  text-align: end;
+}
+
+@mixin display5 {
+  color: $sc-text-col;
+  font-family: $sc-condensed-type;
+  font-weight: 900 !important;
+}
+
+@mixin h5 {
+  color: $sc-body-col;
+  font-family: $sc-condensed-type;
+  font-weight: 900 !important;
+}
+
+@mixin inputFormControl {
+  color: $sc-text-col;
+  font-family: $sc-body-type !important;
+  font-weight: 300 !important;
+}
+
+@mixin inputGroupText {
+  color: $sc-text-col;
+  font-family: $sc-condensed-type;
+  font-weight: 600 !important;
+}
+
+@mixin loginFormControl {
+  color: $sc-text-col;
+  font-family: $sc-body-type;
+  font-weight: 600 !important;
+}
+
+@mixin recipeTitle {
+  color: $sc-text-col;
+  font-family: $sc-display-type;
+  font-size: 7rem;
+  font-weight: 500 !important;
+}
+
+@mixin tableData {
+  color: $sc-text-col;
+  font-family: $sc-body-type;
+  font-weight: 500 !important;
+}
+
+@mixin tableHead {
+  color: $sc-text-col;
+  font-family: $sc-body-type;
+  font-weight: 800 !important;
+}
+
+/*Sous Chef Site-Wide Styling*/
+
+/*Element Styling*/
+body {
+  background-color: $sc-body-col;
+}
+
+footer {
+  background-color: $sc-header-footer-col;
+}
+
+form {
+  background-color: $sc-nav-col;
+}
+
+header {
+  background-color: $sc-header-footer-col;
+}
+
+p {
+  color: $sc-text-col !important;
+  font-family: $sc-body-type !important;
+}
+
+svg rect {
+  fill: $sc-accent-col;
+}
+
+tbody, td, tfoot, th, thead, tr {
+  border-style: none;
+}
+
+td {
+  @include tableData;
+}
+
+th {
+  @include tableHead;
+}
+
+tr th:nth-child(even) {
+  background-color: $sc-section-col;
+  box-shadow: none;
+}
+
+tr td:nth-child(even) {
+  background-color: $sc-section-col;
+  box-shadow: none;
+}
+
+/*ID Styling*/
+#chefAnimation {
+  width: 90%;
+  z-index: 0;
+  position: absolute;
+  left: 60%;
+  bottom: -11%;
+}
+
+#chefArmGlasses {
+  animation-name: removeGlasses;
+  animation-duration: 5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+  transform-origin: center;
+}
+
+#chefArmPaper {
+  animation-name: raisePaper;
+  animation-duration: 5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+  transform-origin: center;
+}
+
+#chefHat {
+  animation-name: hatJiggle;
+  animation-duration: 2s;
+  animation-delay: 2.5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 3;
+  transform-origin: center;
+  animation-fill-mode: forwards;
+}
+
+#chefsHead {
+  animation-name: nodApproval;
+  animation-delay: 2.5s;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 3;
+  animation-fill-mode: forwards;
+  transform-origin: center;
+}
+
+#requestBtn {
+  animation-name: btnColor;
+  animation-delay: 2.75s;
+  animation-duration: 1.75s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 3;
+  animation-fill-mode: backwards;
+  transform-origin: left;
+}
+
+/*Custom Class Styling*/
+.admin-a {
+  font-size: 5.5rem;
+}
+
+.admin-btn {
+  @include adminBtn;
+}
+
+.back-widget {
+  font-size: 50px;
+  bottom: 3%;
+  right: 2%;
+}
+
+.btnImg {
+  bottom: 25%;
+  left: 70%;
+}
+
+.btn-xl {
+  width: 75px;
+  height: 75px;
+}
+
+.conform-row {
+  max-width: 80% !important;
+}
+
+.conform-row-right {
+  margin-left: 20% !important;
+  margin-right: 0 !important;
+  padding-right: 0 !important;
+}
+
+.copyright {
+  font-family: $sc-condensed-type !important;
+  font-weight: 500 !important;
+}
+
+.icon-link {
+  color: $sc-text-col !important;
+}
+
+.ig-sm {
+  width: 30%;
+}
+
+.img-cover {
+  max-height: 300px !important;
+  object-fit: fill !important;
+  width: 100% !important;
+}
+
+.ingredient {
+  font-size: 1.5rem;
+}
+
+.ingredient-effect {
+  transition-duration: 1s;
+  transition-property: transform;
+}
+
+.ingredient-effect:hover {
+  transform: translate(60%) scale(150%);
+}
+
+.push-down {
+  margin-top: 1rem;
+}
+
+.push-over {
+  margin-left: 3rem;
+}
+
+.recipe-controls {
+  font-family: $sc-body-type !important;
+}
+
+.recipe-title {
+  @include recipeTitle;
+}
+
+.salt-a {
+  font-feature-settings: "salt" 7;
+}
+
+.salt-i {
+  font-feature-settings: "salt" 1;
+}
+
+.salt-n {
+  font-feature-settings: "salt" 1;
+}
+
+.salt-r {
+  font-feature-settings: "salt" 3;
+}
+
+.salt-s {
+  font-feature-settings: "salt" 2;
+}
+
+.salt-t {
+  font-feature-settings: "salt" 5;
+}
+
+.salt-v {
+  font-feature-settings: "salt" 5;
+}
+
+.size-lg {
+  height: 75px;
+  margin-bottom: -30px !important;
+  margin-left: -30px !important;
+  width: 75px;
+}
+
+.size-xl {
+  height: 150px;
+  margin-bottom: -50px !important;
+  margin-left: -50px !important;
+  width: 150px;
+}
+
+.svg-effect {
+  transition-duration: .75s;
+  transition-property: transform;
+}
+
+.svg-effect:hover {
+  transform: rotate(360deg) rotateX(180deg) rotateY(60deg) scale(50%);
+}
+
+/*Bootstrap Styling Overrides*/
+.accordion-body {
+  background-color: $sc-body-col;
+  color: $sc-text-col;
+}
+
+.accordion-button {
+  background-color: $sc-body-col;
+  color: $sc-text-col;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: $sc-section-col;
+  box-shadow: none !important;
+  color: $sc-text-col;
+}
+
+.accordion-item {
+  background-color: $sc-body-col;
+  border: var(--bs-accordion-border-width) solid $sc-text-col;
+  color: $sc-text-col;
+}
+
+.alert-danger {
+  background-color: $sc-err-col !important;
+  color: $sc-text-col !important;
+  @include inputFormControl;
+}
+
+.alert-danger strong {
+  @include inputGroupText;
+}
+
+.alert-success {
+  background-color: $sc-section-col !important;
+}
+
+.bg-success {
+  background-color: $sc-section-col !important;
+}
+
+.bg-warning {
+  background-color: $sc-nav-col !important;
+}
+
+.bi-chevron-bar-left {
+  color: $sc-text-col !important;
+}
+
+.btn {
+  border-color: $sc-body-col;
+  color: $sc-body-col !important;
+  font-family: $sc-body-type !important;
+}
+
+.btn-check:checked + .btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check) + .btn:active {
+  border-color: $sc-body-col !important;
+  color: $sc-body-col !important;
+  font-family: $sc-body-type !important;
+}
+
+.btn:hover {
+  background-color: $sc-body-col !important;
+  color: $sc-text-col !important;
+}
+
+.btn-secondary {
+  background-color: $sc-accent-col;
+  border-color: $sc-text-col;
+}
+
+.btn-success {
+  @include inputGroupText;
+  background-color: $sc-section-col;
+  border-color: $sc-text-col;
+  width: 100%;
+}
+
+.btn-success:hover {
+  border-color: $sc-text-col !important;
+}
+
+.card {
+  background-color: $sc-body-col;
+  border-color: $sc-text-col;
+  width: 18rem;
+}
+
+.card, .card-img, .card-img-top {
+  border-radius: 0;
+}
+
+.carousel {
+  border: $sc-text-col 1px solid;
+  max-width: 70%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.carousel-item {
+  max-height: 650px;
+}
+
+.display-1 {
+  @include display1;
+}
+
+.display-2 {
+  @include display2;
+}
+
+.display-3 {
+  @include display3;
+}
+
+.display-4 {
+  @include display4;
+}
+
+.display-5 {
+  @include display5;
+}
+
+.form-control {
+  @include inputFormControl;
+}
+
+.form-label {
+  @include loginFormControl;
+}
+
+.form-select {
+  @include inputFormControl;
+}
+
+.h5 {
+  @include h5;
+}
+
+.input-group-text {
+  @include inputGroupText;
+}
+
+.list-group, .list-group-flush {
+  font-family: $sc-body-type;
+  font-weight: 500;
+}
+
+.list-group-item {
+  background-color: $sc-body-col;
+  border: var(--bs-list-group-border-width) solid $sc-text-col;
+  color: $sc-text-col;
+}
+
+.nav-link {
+  color: $sc-text-col !important;
+  font-family: $sc-body-type !important;
+}
+
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+  color: $sc-text-col !important;
+  font-family: $sc-body-type !important;
+}
+
+.row {
+  overflow: hidden;
+}
+
+.table > :not(caption) > * > * {
+  color: $sc-text-col !important;
+  background-color: unset;
+}
+
+/*Animations*/
+@keyframes btnColor {
+
+  0% {
+    border-color: $sc-body-col;
+  }
+
+  50% {
+    border-color: $sc-nav-col;
+  }
+
+  100% {
+    border-color: $sc-accent-col;
+  }
+
+}
+
+@keyframes hatJiggle {
+  0% {
+    transform: rotate(0deg) translateX(0);
+  }
+
+  25% {
+    transform: rotate(1.5deg) translateX(2px);
+  }
+
+  50% {
+    transform: rotate(0deg) translateX(0px);
+  }
+
+  75% {
+    transform: rotate(1.5deg) translateX(2px);
+  }
+
+  100% {
+    transform: rotate(0deg) translateX(0);
+  }
+}
+
+@keyframes nodApproval {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(1.5deg);
+  }
+
+  50% {
+    transform: rotate(0deg);
+  }
+
+  75% {
+    transform: rotate(1.5deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes raisePaper {
+  0% {
+    transform: skewX(0deg) skewY(0deg) translateY(0px) rotateX(0deg);
+  }
+
+  50% {
+    transform: skewX(2deg) skewY(2deg) translateY(-20px) rotateX(2deg);
+  }
+
+  100% {
+    transform: skewX(0deg) skewY(0deg) translateY(0px) rotateX(0deg);
+  }
+}
+
+@keyframes removeGlasses {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(5deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/*Custom Media Queries*/
+@media screen and (max-width: 1400px) {
+  .btnImg {
+    bottom: 25%;
+    left: 60%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .ingredient {
+    font-size: 1.3rem;
+  }
+
+  .recipe-title {
+    font-size: 6rem;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  #chefAnimation {
+    left: 70%;
+  }
+
+  form.w-50 {
+    width: 75% !important;
+  }
+
+  .back-widget {
+    bottom: 2%;
+  }
+
+  .display-4 {
+    line-height: 1.3;
+  }
+
+  .ingredient-effect:hover {
+    transform: translate(50%) scale(150%);
+  }
+
+  .push-over {
+    margin-left: 0;
+  }
+
+  .recipe-title {
+    font-size: 5rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #chefAnimation {
+    bottom: -10%;
+    width: 100%;
+  }
+
+  .align-cards {
+    padding-inline: 0 !important;
+  }
+
+  .card {
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+  }
+
+  .carousel-item {
+    max-height: 260px;
+  }
+
+  .display-4 {
+    line-height: 1.45;
+  }
+
+  .ingredient {
+    font-size: 1.15rem;
+  }
+
+  .ingredient-effect:hover {
+    transform: translate(40%) scale(130%);
+  }
+
+  .recipe-title {
+    font-size: 4rem;
+  }
+
+  .size-xl {
+    height: 75px;
+    margin-bottom: -30px !important;
+    margin-left: -30px !important;
+    width: 75px;
+  }
+
+  .to-column {
+    flex-direction: column;
+  }
+
+}
+
+@media screen and (max-width: 576px) {
+  #chefAnimation {
+    left: 75%;
+  }
+
+  .back-widget {
+    bottom: 0%;
+  }
+
+  .btnImg {
+    bottom: 25%;
+    left: 60%;
+  }
+
+  .carousel-item {
+    max-height: 200px;
+  }
+
+  .conform-row {
+    max-width: none !important;
+  }
+
+  .conform-row-right {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .display-4 {
+    line-height: 1.55;
+  }
+
+  .no-pad-sm {
+    padding-right: 0 !important;
+  }
+
+}

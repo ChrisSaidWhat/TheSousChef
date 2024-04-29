@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <title>Sous Chef - Announcement</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
+        <link href="announcement.css" rel="stylesheet" type="text/css">
+
+        <script>
+            function closeAd() {
+                parent.postMessage('hideBanner', '*');
+            }
+        </script>
+
+    </head>
+    <body>
+
+        <div id="bannerBody">
+            <a href="../recipeRequest.php" target="_top">
+                <div id="linkContents">
+                    <h1>Special Offer</h1>
+                    <p>Submit A Recipe To The Sous Chef&trade; &amp; Get <strong>20% Off</strong> Coupon For Cuisinart&trade;
+                        Products!</p>
+                    <img alt="Kitchen frying pan in the colors of The Sous Chef."
+                         id="adPan" src="../sousChefImages/SVG/bannerAdFryingPan.svg">
+                    <img alt="Kitchen blender in the colors of The Sous Chef."
+                         id="adBlender" src="../sousChefImages/SVG/bannerAdBlender.svg">
+                    <img alt="The Sous Chef logo." id="scLogo" src="../sousChefImages/SVG/bannerAdLogo.svg">
+                </div>
+            </a>
+            <i class="bi bi-x-circle" id="closeAd" onclick="closeAd()"></i>
+        </div>
+
+    </body>
+</html>

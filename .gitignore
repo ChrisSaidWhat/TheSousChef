@@ -1,0 +1,2 @@
+#ignore the dbConnect.php file for security reasons
+dbConnect.php

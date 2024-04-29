@@ -1,0 +1,631 @@
+/*Sous Chef Imports*/
+@import url("https://use.typekit.net/pvx7qae.css");
+/*Sous Chef Color Variables*/
+/*Sous Chef Typography Variables*/
+/*Sous Chef Typography Mixins*/
+/*Sous Chef Site-Wide Styling*/
+/*Element Styling*/
+body {
+  background-color: #FAFFFD;
+}
+
+footer {
+  background-color: #F19A3E;
+}
+
+form {
+  background-color: #F5BA7A;
+}
+
+header {
+  background-color: #F19A3E;
+}
+
+p {
+  color: #3C3C3C !important;
+  font-family: "gill-sans-nova", "Gill Sans", sans-serif !important;
+}
+
+svg rect {
+  fill: #FA824C;
+}
+
+tbody, td, tfoot, th, thead, tr {
+  border-style: none;
+}
+
+td {
+  color: #3C3C3C;
+  font-family: "gill-sans-nova", "Gill Sans", sans-serif;
+  font-weight: 500 !important;
+}
+
+th {
+  color: #3C3C3C;
+  font-family: "gill-sans-nova", "Gill Sans", sans-serif;
+  font-weight: 800 !important;
+}
+
+tr th:nth-child(even) {
+  background-color: #A2D729;
+  box-shadow: none;
+}
+
+tr td:nth-child(even) {
+  background-color: #A2D729;
+  box-shadow: none;
+}
+
+/*ID Styling*/
+#chefAnimation {
+  width: 90%;
+  z-index: 0;
+  position: absolute;
+  left: 60%;
+  bottom: -11%;
+}
+
+#chefArmGlasses {
+  animation-name: removeGlasses;
+  animation-duration: 5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+  transform-origin: center;
+}
+
+#chefArmPaper {
+  animation-name: raisePaper;
+  animation-duration: 5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+  transform-origin: center;
+}
+
+#chefHat {
+  animation-name: hatJiggle;
+  animation-duration: 2s;
+  animation-delay: 2.5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 3;
+  transform-origin: center;
+  animation-fill-mode: forwards;
+}
+
+#chefsHead {
+  animation-name: nodApproval;
+  animation-delay: 2.5s;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 3;
+  animation-fill-mode: forwards;
+  transform-origin: center;
+}
+
+#requestBtn {
+  animation-name: btnColor;
+  animation-delay: 2.75s;
+  animation-duration: 1.75s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 3;
+  animation-fill-mode: backwards;
+  transform-origin: left;
+}
+
+/*Custom Class Styling*/
+.admin-a {
+  font-size: 5.5rem;
+}
+
+.admin-btn {
+  color: #FAFFFD;
+  font-family: "gill-sans-nova", "Gill Sans", sans-serif;
+  font-weight: 800 !important;
+}
+
+.back-widget {
+  font-size: 50px;
+  bottom: 3%;
+  right: 2%;
+}
+
+.btnImg {
+  bottom: 25%;
+  left: 70%;
+}
+
+.btn-xl {
+  width: 75px;
+  height: 75px;
+}
+
+.conform-row {
+  max-width: 80% !important;
+}
+
+.conform-row-right {
+  margin-left: 20% !important;
+  margin-right: 0 !important;
+  padding-right: 0 !important;
+}
+
+.copyright {
+  font-family: "gill-sans-nova-condensed", "Gill Sans", sans-serif !important;
+  font-weight: 500 !important;
+}
+
+.icon-link {
+  color: #3C3C3C !important;
+}
+
+.ig-sm {
+  width: 30%;
+}
+
+.img-cover {
+  max-height: 300px !important;
+  object-fit: fill !important;
+  width: 100% !important;
+}
+
+.ingredient {
+  font-size: 1.5rem;
+}
+
+.ingredient-effect {
+  transition-duration: 1s;
+  transition-property: transform;
+}
+
+.ingredient-effect:hover {
+  transform: translate(60%) scale(150%);
+}
+
+.push-down {
+  margin-top: 1rem;
+}
+
+.push-over {
+  margin-left: 3rem;
+}
+
+.recipe-controls {
+  font-family: "gill-sans-nova", "Gill Sans", sans-serif !important;
+}
+
+.recipe-title {
+  color: #3C3C3C;
+  font-family: Bookmania, serif;
+  font-size: 7rem;
+  font-weight: 500 !important;
+}
+
+.salt-a {
+  font-feature-settings: "salt" 7;
+}
+
+.salt-i {
+  font-feature-settings: "salt" 1;
+}
+
+.salt-n {
+  font-feature-settings: "salt" 1;
+}
+
+.salt-r {
+  font-feature-settings: "salt" 3;
+}
+
+.salt-s {
+  font-feature-settings: "salt" 2;
+}
+
+.salt-t {
+  font-feature-settings: "salt" 5;
+}
+
+.salt-v {
+  font-feature-settings: "salt" 5;
+}
+
+.size-lg {
+  height: 75px;
+  margin-bottom: -30px !important;
+  margin-left: -30px !important;
+  width: 75px;
+}
+
+.size-xl {
+  height: 150px;
+  margin-bottom: -50px !important;
+  margin-left: -50px !important;
+  width: 150px;
+}
+
+.svg-effect {
+  transition-duration: 0.75s;
+  transition-property: transform;
+}
+
+.svg-effect:hover {
+  transform: rotate(360deg) rotateX(180deg) rotateY(60deg) scale(50%);
+}
+
+/*Bootstrap Styling Overrides*/
+.accordion-body {
+  background-color: #FAFFFD;
+  color: #3C3C3C;
+}
+
+.accordion-button {
+  background-color: #FAFFFD;
+  color: #3C3C3C;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #A2D729;
+  box-shadow: none !important;
+  color: #3C3C3C;
+}
+
+.accordion-item {
+  background-color: #FAFFFD;
+  border: var(--bs-accordion-border-width) solid #3C3C3C;
+  color: #3C3C3C;
+}
+
+.alert-danger {
+  background-color: #F06A7C !important;
+  color: #3C3C3C !important;
+  color: #3C3C3C;
+  font-family: "gill-sans-nova", "Gill Sans", sans-serif !important;
+  font-weight: 300 !important;
+}
+
+.alert-danger strong {
+  color: #3C3C3C;
+  font-family: "gill-sans-nova-condensed", "Gill Sans", sans-serif;
+  font-weight: 600 !important;
+}
+
+.alert-success {
+  background-color: #A2D729 !important;
+}
+
+.bg-success {
+  background-color: #A2D729 !important;
+}
+
+.bg-warning {
+  background-color: #F5BA7A !important;
+}
+
+.bi-chevron-bar-left {
+  color: #3C3C3C !important;
+}
+
+.btn {
+  border-color: #FAFFFD;
+  color: #FAFFFD !important;
+  font-family: "gill-sans-nova", "Gill Sans", sans-serif !important;
+}
+
+.btn-check:checked + .btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check) + .btn:active {
+  border-color: #FAFFFD !important;
+  color: #FAFFFD !important;
+  font-family: "gill-sans-nova", "Gill Sans", sans-serif !important;
+}
+
+.btn:hover {
+  background-color: #FAFFFD !important;
+  color: #3C3C3C !important;
+}
+
+.btn-secondary {
+  background-color: #FA824C;
+  border-color: #3C3C3C;
+}
+
+.btn-success {
+  color: #3C3C3C;
+  font-family: "gill-sans-nova-condensed", "Gill Sans", sans-serif;
+  font-weight: 600 !important;
+  background-color: #A2D729;
+  border-color: #3C3C3C;
+  width: 100%;
+}
+
+.btn-success:hover {
+  border-color: #3C3C3C !important;
+}
+
+.card {
+  background-color: #FAFFFD;
+  border-color: #3C3C3C;
+  width: 18rem;
+}
+
+.card, .card-img, .card-img-top {
+  border-radius: 0;
+}
+
+.carousel {
+  border: #3C3C3C 1px solid;
+  max-width: 70%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.carousel-item {
+  max-height: 650px;
+}
+
+.display-1 {
+  color: #3C3C3C;
+  font-family: Bookmania, serif;
+  font-feature-settings: "dlig";
+  font-weight: 700 !important;
+  line-height: 0.4;
+}
+
+.display-2 {
+  color: #3C3C3C;
+  font-family: Bookmania, serif;
+  font-weight: 700 !important;
+}
+
+.display-3 {
+  color: #3C3C3C;
+  font-family: Bookmania, serif;
+  font-weight: 600 !important;
+}
+
+.display-4 {
+  color: #3C3C3C;
+  font-family: Bookmania, serif;
+  font-weight: 700 !important;
+  margin-bottom: -23px;
+  text-align: end;
+}
+
+.display-5 {
+  color: #3C3C3C;
+  font-family: "gill-sans-nova-condensed", "Gill Sans", sans-serif;
+  font-weight: 900 !important;
+}
+
+.form-control {
+  color: #3C3C3C;
+  font-family: "gill-sans-nova", "Gill Sans", sans-serif !important;
+  font-weight: 300 !important;
+}
+
+.form-label {
+  color: #3C3C3C;
+  font-family: "gill-sans-nova", "Gill Sans", sans-serif;
+  font-weight: 600 !important;
+}
+
+.form-select {
+  color: #3C3C3C;
+  font-family: "gill-sans-nova", "Gill Sans", sans-serif !important;
+  font-weight: 300 !important;
+}
+
+.h5 {
+  color: #FAFFFD;
+  font-family: "gill-sans-nova-condensed", "Gill Sans", sans-serif;
+  font-weight: 900 !important;
+}
+
+.input-group-text {
+  color: #3C3C3C;
+  font-family: "gill-sans-nova-condensed", "Gill Sans", sans-serif;
+  font-weight: 600 !important;
+}
+
+.list-group, .list-group-flush {
+  font-family: "gill-sans-nova", "Gill Sans", sans-serif;
+  font-weight: 500;
+}
+
+.list-group-item {
+  background-color: #FAFFFD;
+  border: var(--bs-list-group-border-width) solid #3C3C3C;
+  color: #3C3C3C;
+}
+
+.nav-link {
+  color: #3C3C3C !important;
+  font-family: "gill-sans-nova", "Gill Sans", sans-serif !important;
+}
+
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+  color: #3C3C3C !important;
+  font-family: "gill-sans-nova", "Gill Sans", sans-serif !important;
+}
+
+.row {
+  overflow: hidden;
+}
+
+.table > :not(caption) > * > * {
+  color: #3C3C3C !important;
+  background-color: unset;
+}
+
+/*Animations*/
+@keyframes btnColor {
+  0% {
+    border-color: #FAFFFD;
+  }
+  50% {
+    border-color: #F5BA7A;
+  }
+  100% {
+    border-color: #FA824C;
+  }
+}
+@keyframes hatJiggle {
+  0% {
+    transform: rotate(0deg) translateX(0);
+  }
+  25% {
+    transform: rotate(1.5deg) translateX(2px);
+  }
+  50% {
+    transform: rotate(0deg) translateX(0px);
+  }
+  75% {
+    transform: rotate(1.5deg) translateX(2px);
+  }
+  100% {
+    transform: rotate(0deg) translateX(0);
+  }
+}
+@keyframes nodApproval {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(1.5deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(1.5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes raisePaper {
+  0% {
+    transform: skewX(0deg) skewY(0deg) translateY(0px) rotateX(0deg);
+  }
+  50% {
+    transform: skewX(2deg) skewY(2deg) translateY(-20px) rotateX(2deg);
+  }
+  100% {
+    transform: skewX(0deg) skewY(0deg) translateY(0px) rotateX(0deg);
+  }
+}
+@keyframes removeGlasses {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+/*Custom Media Queries*/
+@media screen and (max-width: 1400px) {
+  .btnImg {
+    bottom: 25%;
+    left: 60%;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .ingredient {
+    font-size: 1.3rem;
+  }
+  .recipe-title {
+    font-size: 6rem;
+  }
+}
+@media screen and (max-width: 992px) {
+  #chefAnimation {
+    left: 70%;
+  }
+  form.w-50 {
+    width: 75% !important;
+  }
+  .back-widget {
+    bottom: 2%;
+  }
+  .display-4 {
+    line-height: 1.3;
+  }
+  .ingredient-effect:hover {
+    transform: translate(50%) scale(150%);
+  }
+  .push-over {
+    margin-left: 0;
+  }
+  .recipe-title {
+    font-size: 5rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  #chefAnimation {
+    bottom: -10%;
+    width: 100%;
+  }
+  .align-cards {
+    padding-inline: 0 !important;
+  }
+  .card {
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+  }
+  .carousel-item {
+    max-height: 260px;
+  }
+  .display-4 {
+    line-height: 1.45;
+  }
+  .ingredient {
+    font-size: 1.15rem;
+  }
+  .ingredient-effect:hover {
+    transform: translate(40%) scale(130%);
+  }
+  .recipe-title {
+    font-size: 4rem;
+  }
+  .size-xl {
+    height: 75px;
+    margin-bottom: -30px !important;
+    margin-left: -30px !important;
+    width: 75px;
+  }
+  .to-column {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 576px) {
+  #chefAnimation {
+    left: 75%;
+  }
+  .back-widget {
+    bottom: 0%;
+  }
+  .btnImg {
+    bottom: 25%;
+    left: 60%;
+  }
+  .carousel-item {
+    max-height: 200px;
+  }
+  .conform-row {
+    max-width: none !important;
+  }
+  .conform-row-right {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+  }
+  .display-4 {
+    line-height: 1.55;
+  }
+  .no-pad-sm {
+    padding-right: 0 !important;
+  }
+}
+
+/*# sourceMappingURL=siteStyles.css.map */

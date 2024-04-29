@@ -22,6 +22,12 @@
         }
 
         $recipeTitle = $_POST["inRecipeTitle"];
+
+        if(empty(trim($recipeTitle))) {
+            $validForm = false;
+            $errMsgTitle = "Must provide a recipe title.";
+        }
+
         $recipeImage = $_FILES["inRecipeImage"]["name"];
 
         //  image upload processing
@@ -31,49 +37,48 @@
         $uploadOk = 1;
         $image_file_type = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
-//        //  check that image file is an image
-//
-//        if (isset($_POST["submit"])) {
-//            $check = getimagesize($_FILES["inRecipeImage"]["tmp_name"]);
-//            if ($check !== false) {
-////                echo "File is an image - " . $check["mime"] . ".";
-//                $uploadOk = 1;
-//            }
-//            else {
-//                echo "File is not an image.";
-//                $uploadOk = 0;
-//            }
-//        }
-//
-//        //  check if image already exists
-//
-//        if (file_exists($target_file)) {
-////            echo "Sorry, the file already exists.";
-//            $uploadOk = 0;
-//        }
-//
-//        //  check file size
-//
-//        if ($_FILES["inRecipeImage"]["size"] > 500000) {
-////            echo "Sorry, your file is too large.";
-//            $uploadOk = 0;
-//        }
-//
-//        //  check and limit image file types
-//
-//        if ($image_file_type != "jpg" && $image_file_type != "jpeg" && $image_file_type != "png" && $image_file_type != "gif") {
-////            echo "Only JPG, JPEG, PNG, & GIF files can be uploaded.";
-//            $uploadOk = 0;
-//        }
+        //  check that image file is an image
+
+        if (isset($_POST["submit"])) {
+            $check = getimagesize($_FILES["inRecipeImage"]["tmp_name"]);
+            if ($check !== false) {
+                $uploadOk = 1;
+            }
+            else {
+                $errMsgImg = "File is not an image.";
+                $uploadOk = 0;
+            }
+        }
+        //  check if image already exists
+
+        if (file_exists($target_file)) {
+            $errMsgImg = "Sorry, the file already exists.";
+            $uploadOk = 0;
+        }
+
+        //  check file size
+
+        if ($_FILES["inRecipeImage"]["size"] > 500000) {
+            $errMsgImg = "Sorry, your file is too large.";
+            $uploadOk = 0;
+        }
+
+        //  check and limit image file types
+
+        if ($image_file_type != "jpg" && $image_file_type != "jpeg" && $image_file_type != "png" && $image_file_type != "gif") {
+            $errMsgImg = "Only JPG, JPEG, PNG, & GIF files can be uploaded.";
+            $uploadOk = 0;
+        }
 
         //  check if file is acceptable for upload
 
         if ($uploadOk == 0) {
 //            echo "Your file was not uploaded.";
+            $validForm = false;
         }
         else {
             if (move_uploaded_file($_FILES["inRecipeImage"]["tmp_name"], $target_file)) {
-//                echo "The file " . htmlspecialchars(basename($_FILES["inRecipeImage"]["name"])) . " has been successfully uploaded.";
+
             }
             else {
 //                echo "There was an error uploading the file.";
@@ -81,53 +86,121 @@
         }
 
         $recipeServingSize = $_POST["inRecipeServing"];
+
+        if(empty(trim($recipeServingSize))) {
+            $validForm = false;
+            $errMsgServing = "Must choose a serving size for the recipe.";
+        }
+
         $recipeTime = $_POST["inRecipeTime"];
+
+        if(empty(trim($recipeTime))) {
+            $validForm = false;
+            $errMsgTime = "Must provide a duration for the recipe.";
+        }
+
         $recipeDifficulty = $_POST["inRecipeDifficulty"];
+
+        if(empty(trim($recipeDifficulty))) {
+            $validForm = false;
+            $errMsgDiff = "Must provide a difficulty rating for the recipe.";
+        }
+
         $ingredientTitles = $_POST["inIngredientTitle"];
+
+        for($i = 0; $i < count($ingredientTitles); $i++) {
+            if(empty(trim($ingredientTitles[$i]))) {
+                $validForm = false;
+                $errMsgIngTitle = "Must provide a title for each ingredient.";
+            }
+        }
+
         $ingredientQuantities = $_POST["inIngredientQuantity"];
+
+        for($i = 0; $i < count($ingredientQuantities); $i++) {
+            if(empty(trim($ingredientQuantities[$i]))) {
+                $validForm = false;
+                $errMsgIngQuant = "Must provide a quantity for each ingredient.";
+            }
+        }
+
         $instructionHeadings = $_POST["inInstructionHeading"];
+
+        for($i = 0; $i < count($instructionHeadings); $i++) {
+            if(empty(trim($instructionHeadings[$i]))) {
+                $validForm = false;
+                $errMsgInstHeading = "Must provide a heading for each instruction.";
+            }
+        }
+
         $instructionBodies = $_POST["inInstructionBody"];
+
+        for($i = 0; $i < count($instructionBodies); $i++) {
+            if(empty(trim($instructionBodies[$i]))) {
+                $validForm = false;
+                $errMsgInstBody = "Must provide a body for each instruction.";
+            }
+        }
+
         $senderName = $_POST['inSenderName'];
+
+        if(empty(trim($senderName))) {
+            $validForm = false;
+            $errMsgSenderName = "Must provide a sender name for the recipe.";
+        }
+
         $senderEmail = $_POST['inSenderEmail'];
+
+        if(empty(trim($senderEmail))) {
+            $validForm = false;
+            $errMsgSenderEmail = "Must provide a sender email for the recipe.";
+        }
+
         $senderComments = $_POST['inSenderComments'];
 
+        if(empty(trim($senderComments))) {
+            $validForm = false;
+            $errMsgSenderComments = "Must provide sender comments for the recipe.";
+        }
 
         $ingredientTitles = json_encode($ingredientTitles);
         $ingredientQuantities = json_encode($ingredientQuantities);
         $instructionHeadings = json_encode($instructionHeadings);
         $instructionBodies = json_encode($instructionBodies);
 
-        try {
-            require "dbConnect.php";
+        if($validForm) {
+            try {
+                require "dbConnect.php";
 
-            $sql = "INSERT INTO recipe (recipe_title, recipe_image, recipe_serving_size, recipe_time, recipe_difficulty, recipe_ingredient_title, recipe_ingredient_quantity, recipe_instruction_heading, recipe_instruction_body, sender_name, sender_email, sender_comments)
+                $sql = "INSERT INTO recipe (recipe_title, recipe_image, recipe_serving_size, recipe_time, recipe_difficulty, recipe_ingredient_title, recipe_ingredient_quantity, recipe_instruction_heading, recipe_instruction_body, sender_name, sender_email, sender_comments)
                     VALUES (:recipeTitle, :recipeImage, :recipeServingSize, :recipeTime, :recipeDifficulty, :ingredientTitles, :ingredientQuantities, :instructionHeadings, :instructionBodies, :senderName, :senderEmail, :senderComments)";
 
-            $stmt = $conn->prepare($sql);
+                $stmt = $conn->prepare($sql);
 
-            $stmt->bindParam(':recipeTitle', $recipeTitle);
-            $stmt->bindParam(':recipeImage', $recipeImage);
-            $stmt->bindParam(':recipeServingSize', $recipeServingSize);
-            $stmt->bindParam(':recipeTime', $recipeTime);
-            $stmt->bindParam(':recipeDifficulty', $recipeDifficulty);
-            $stmt->bindParam(':ingredientTitles', $ingredientTitles);
-            $stmt->bindParam(':ingredientQuantities', $ingredientQuantities);
-            $stmt->bindParam(':instructionHeadings', $instructionHeadings);
-            $stmt->bindParam(':instructionBodies', $instructionBodies);
-            $stmt->bindParam(':senderName', $senderName);
-            $stmt->bindParam(':senderEmail', $senderEmail);
-            $stmt->bindParam(':senderComments', $senderComments);
+                $stmt->bindParam(':recipeTitle', $recipeTitle);
+                $stmt->bindParam(':recipeImage', $recipeImage);
+                $stmt->bindParam(':recipeServingSize', $recipeServingSize);
+                $stmt->bindParam(':recipeTime', $recipeTime);
+                $stmt->bindParam(':recipeDifficulty', $recipeDifficulty);
+                $stmt->bindParam(':ingredientTitles', $ingredientTitles);
+                $stmt->bindParam(':ingredientQuantities', $ingredientQuantities);
+                $stmt->bindParam(':instructionHeadings', $instructionHeadings);
+                $stmt->bindParam(':instructionBodies', $instructionBodies);
+                $stmt->bindParam(':senderName', $senderName);
+                $stmt->bindParam(':senderEmail', $senderEmail);
+                $stmt->bindParam(':senderComments', $senderComments);
 
-            $stmt->execute();
-        }
-        catch (PDOException $e) {
-            $message = "There has been a problem. The system administrator has been contacted. Please try again later.";
+                $stmt->execute();
+            }
+            catch (PDOException $e) {
+                $message = "There has been a problem. The system administrator has been contacted. Please try again later.";
 
-            error_log($e->getMessage());
-            error_log($e->getLine());
-            error_log(var_dump(debug_backtrace()));
+                error_log($e->getMessage());
+                error_log($e->getLine());
+                error_log(var_dump(debug_backtrace()));
 
-            echo "<h1>$message</h1>";
+                echo "<h1>$message</h1>";
+            }
         }
     }
     else {
@@ -245,11 +318,33 @@
                                     <input aria-describedby="recipeTitle" aria-label="Recipe Title" class="form-control"
                                            placeholder="Recipe Title" type="text" name="inRecipeTitle" required>
                                 </div>
+                                <?php
+                                    if(isset($errMsgTitle)) {
+                                        ?>
+                                        <div class="alert alert-danger alert-dismissible mt-3" role="alert" id="errMsg1">
+                                            <strong>ERROR!</strong> <?php echo $errMsgTitle; ?>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                    aria-label="Close"></button>
+                                        </div>
+                                        <?php
+                                    };
+                                ?>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="recipeImg">Recipe Image: </span>
                                     <input aria-describedby="recipeImg" aria-label="Recipe Image" class="form-control"
                                            placeholder="Recipe Image" type="file" name="inRecipeImage" required>
                                 </div>
+                                <?php
+                                    if(isset($errMsgImg)) {
+                                        ?>
+                                        <div class="alert alert-danger alert-dismissible mt-3" role="alert" id="errMsg1">
+                                            <strong>ERROR!</strong> <?php echo $errMsgImg; ?>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                    aria-label="Close"></button>
+                                        </div>
+                                        <?php
+                                    };
+                                ?>
                             </div>
                             <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
                                 <div class="input-group mb-3">
@@ -265,6 +360,17 @@
                                         <option value="triple">Triple</option>
                                     </select>
                                 </div>
+                                <?php
+                                    if(isset($errMsgServing)) {
+                                        ?>
+                                        <div class="alert alert-danger alert-dismissible mt-3" role="alert" id="errMsg1">
+                                            <strong>ERROR!</strong> <?php echo $errMsgServing; ?>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                    aria-label="Close"></button>
+                                        </div>
+                                        <?php
+                                    };
+                                ?>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="recipeTimeLabel">Recipe Time: </span>
                                     <input aria-describedby="recipeTimeLabel" aria-label="Recipe Time"
@@ -273,6 +379,17 @@
                                            type="text" name="inRecipeTime" required>
                                     <span class="input-group-text" id="recipeTimeImg"><i class="bi bi-clock"></i></span>
                                 </div>
+                                <?php
+                                    if(isset($errMsgTime)) {
+                                        ?>
+                                        <div class="alert alert-danger alert-dismissible mt-3" role="alert" id="errMsg1">
+                                            <strong>ERROR!</strong> <?php echo $errMsgTime; ?>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                    aria-label="Close"></button>
+                                        </div>
+                                        <?php
+                                    };
+                                ?>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="recipeDiffLabel">Recipe Difficulty: </span>
                                     <input aria-describedby="recipeDiffLabel" aria-label="Recipe Difficulty"
@@ -282,6 +399,17 @@
                                     <span class="input-group-text" id="recipeDiffMax">/5</span>
                                     <span class="input-group-text" id="recipeDiffImg"><i class="bi bi-star"></i></span>
                                 </div>
+                                <?php
+                                    if(isset($errMsgDiff)) {
+                                        ?>
+                                        <div class="alert alert-danger alert-dismissible mt-3" role="alert" id="errMsg1">
+                                            <strong>ERROR!</strong> <?php echo $errMsgDiff; ?>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                    aria-label="Close"></button>
+                                        </div>
+                                        <?php
+                                    };
+                                ?>
                             </div>
                         </div> <!-- end of inner row 1 -->
                         <div class="row bg-success py-5 justify-content-evenly to-column">
@@ -305,6 +433,28 @@
                                                     class="bi bi-receipt"></i></span>
                                     </div>
                                 </div> <!-- end of ingredient set -->
+                                <?php
+                                    if(isset($errMsgIngTitle)) {
+                                        ?>
+                                        <div class="alert alert-danger alert-dismissible mt-3" role="alert" id="errMsg1">
+                                            <strong>ERROR!</strong> <?php echo $errMsgIngTitle; ?>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                    aria-label="Close"></button>
+                                        </div>
+                                        <?php
+                                    };
+                                ?>
+                                <?php
+                                    if(isset($errMsgIngQuant)) {
+                                        ?>
+                                        <div class="alert alert-danger alert-dismissible mt-3" role="alert" id="errMsg1">
+                                            <strong>ERROR!</strong> <?php echo $errMsgIngQuant; ?>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                    aria-label="Close"></button>
+                                        </div>
+                                        <?php
+                                    };
+                                ?>
                             </div>
                             <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 d-flex justify-content-center align-content-center m-auto">
                                 <button class="btn btn-outline-light btn-xl" id="addIngredientSet" type="button"
@@ -313,6 +463,7 @@
                                 </button>
                             </div>
                         </div> <!-- end of inner row 2 -->
+
                         <div class="row bg-success py-5 justify-content-evenly to-column">
                             <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-8" id="instructionSetDestination">
                                 <div class="instruction-set">
@@ -333,6 +484,28 @@
                                                   name="inInstructionBody[0]"></textarea>
                                     </div>
                                 </div> <!-- end of instruction set -->
+                                <?php
+                                    if(isset($errMsgInstHeading)) {
+                                        ?>
+                                        <div class="alert alert-danger alert-dismissible mt-3" role="alert" id="errMsg1">
+                                            <strong>ERROR!</strong> <?php echo $errMsgInstHeading; ?>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                    aria-label="Close"></button>
+                                        </div>
+                                        <?php
+                                    };
+                                ?>
+                                <?php
+                                    if(isset($errMsgInstBody)) {
+                                        ?>
+                                        <div class="alert alert-danger alert-dismissible mt-3" role="alert" id="errMsg1">
+                                            <strong>ERROR!</strong> <?php echo $errMsgInstBody; ?>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                    aria-label="Close"></button>
+                                        </div>
+                                        <?php
+                                    };
+                                ?>
                             </div>
                             <div class="col-md-12 col-lg-4 col-xl-4 col-xxl-4 d-flex justify-content-center align-content-center m-auto">
                                 <button class="btn btn-outline-light btn-xl" id="addInstructionSet" type="button"
@@ -349,6 +522,17 @@
                                            placeholder="Name"
                                            type="text" name="inSenderName" required>
                                 </div>
+                                <?php
+                                    if(isset($errMsgSenderName)) {
+                                        ?>
+                                        <div class="alert alert-danger alert-dismissible mt-3" role="alert" id="errMsg1">
+                                            <strong>ERROR!</strong> <?php echo $errMsgSenderName; ?>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                    aria-label="Close"></button>
+                                        </div>
+                                        <?php
+                                    };
+                                ?>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="emailAddressLabel">Email Address: </span>
                                     <input aria-describedby="emailAddressLabel" aria-label="Email Address"
@@ -356,6 +540,17 @@
                                            placeholder="username@example.com" type="email" name="inSenderEmail"
                                            required>
                                 </div>
+                                <?php
+                                    if(isset($errMsgSenderEmail)) {
+                                        ?>
+                                        <div class="alert alert-danger alert-dismissible mt-3" role="alert" id="errMsg1">
+                                            <strong>ERROR!</strong> <?php echo $errMsgSenderEmail; ?>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                    aria-label="Close"></button>
+                                        </div>
+                                        <?php
+                                    };
+                                ?>
                                 <div class="input-group mb-3">
                                         <span class="input-group-text"
                                               id="additionalComments">Additional Comments: </span>
@@ -364,13 +559,23 @@
                                               placeholder="Write Additional Comments Here..." id="senderComments"
                                               name="inSenderComments" required></textarea>
                                 </div>
+                                <?php
+                                    if(isset($errMsgSenderComments)) {
+                                        ?>
+                                        <div class="alert alert-danger alert-dismissible mt-3" role="alert" id="errMsg1">
+                                            <strong>ERROR!</strong> <?php echo $errMsgSenderComments; ?>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                    aria-label="Close"></button>
+                                        </div>
+                                        <?php
+                                    };
+                                ?>
                             </div>
                         </div><!-- end of inner row 4 -->
                         <div class="row bg-success py-5 justify-content-evenly to-column">
                             <div class="d-flex justify-content-start">
                                 <div aria-label="Basic outlined example" class="btn-group" role="group">
-                                    <button class="btn btn-outline-light" type="button"
-                                            onclick="databasePreCheck(ingredientCounter, instructionCounter)">Add Recipe
+                                    <button class="btn btn-outline-light" type="button" onclick="databasePreCheck(ingredientCounter, instructionCounter)">Add Recipe
                                     </button>
                                     <button class="btn btn-outline-light" type="reset" onclick="clearPage()">Clear
                                         Fields

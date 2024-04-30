@@ -19,6 +19,8 @@
     $toSender = $inSenderEmail;
     $subjectSender = "Recipe Request Received!";
     $headerSender = "From: christopher@christophersaid.com";
+    $headerSender .= "MIME-Version: 1.0" . "\r\n";
+    $headerSender .= "Content-type:text/html;charset=UTF-8" . "\r\n";
     $messageSender = "<h1>Thank You For Sharing Your Recipe Chef!</h1>";
     $messageSender .= "<p><strong>$inSenderName</strong>, Thank you for your submitted recipe request to The Sous Chef&trade;!</p>";
     $messageSender .= "<p>We have received the following answers and will keep you posted on where we are at in the process to decide on whether to accept your recipe.</p>";
@@ -30,7 +32,9 @@
     //  data for mailing to Sous Chef
     $toSC = "christopher@christophersaid.com";
     $subjectSC = "Recipe Request Received";
-    $headerSC = "From: $inSenderEmail";
+    $headerSC = "From: $inSenderEmail". "\r\n";
+    $headerSC .= "MIME-Version: 1.0" . "\r\n";
+    $headerSC .= "Content-type: text/html; charset=UTF-8" . "\r\n";
     $messageSC = "<ol><li>Recipe Title: $inRecipeTitle</li> <li>Recipe Image: $inRecipeImage</li> <li>Recipe Serving Size: $inRecipeServingSize</li>";
     $messageSC .= "<li>Recipe Time: $inRecipeTime</li> <li>Recipe Difficulty: $inRecipeDifficulty/5</li> <li>Ingredient Title: $inIngredientTitle</li> <li>Ingredient Quantity: $inIngredientQuantity</li>";
     $messageSC .= "<li>Instruction Heading: $inInstructionHeading</li> <li>Instruction Body: $inInstructionBody</li> <li>Sender Name: $inSenderName</li> <li>Sender Email: $inSenderEmail</li> <li>Additional Comments: $inSenderComments</li></ol>";
